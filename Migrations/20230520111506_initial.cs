@@ -52,18 +52,6 @@ namespace ABDALLAH.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -170,6 +158,25 @@ namespace ABDALLAH.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserID = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_UserID",
+                        column: x => x.UserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PRODUCTS",
                 columns: table => new
                 {
@@ -177,26 +184,25 @@ namespace ABDALLAH.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CostumerFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CotumerCity = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CostumerPhoneNumber = table.Column<int>(type: "int", nullable: false),
-                    PNumber = table.Column<int>(type: "int", nullable: false),
+                    CostumerPhoneNumber = table.Column<int>(type: "int", nullable: true),
+                    PNumber = table.Column<int>(type: "int", nullable: true),
                     NameFR = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NameAR = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Benefit = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    Benefit = table.Column<int>(type: "int", nullable: true),
+                    Price = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Payment = table.Column<int>(type: "int", nullable: false),
-                    ShippingPayment = table.Column<int>(type: "int", nullable: false),
-                    PRODUCTID = table.Column<int>(type: "int", nullable: false),
-                    OrderID = table.Column<int>(type: "int", nullable: true)
+                    Payment = table.Column<int>(type: "int", nullable: true),
+                    ShippingPayment = table.Column<int>(type: "int", nullable: true),
+                    PRODUCTID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PRODUCTS", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_PRODUCTS_Orders_OrderID",
-                        column: x => x.OrderID,
+                        name: "FK_PRODUCTS_Orders_PRODUCTID",
+                        column: x => x.PRODUCTID,
                         principalTable: "Orders",
                         principalColumn: "ID");
                 });
@@ -241,9 +247,14 @@ namespace ABDALLAH.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PRODUCTS_OrderID",
+                name: "IX_Orders_UserID",
+                table: "Orders",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PRODUCTS_PRODUCTID",
                 table: "PRODUCTS",
-                column: "OrderID");
+                column: "PRODUCTID");
         }
 
         /// <inheritdoc />
@@ -271,10 +282,10 @@ namespace ABDALLAH.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "AspNetUsers");
         }
     }
 }

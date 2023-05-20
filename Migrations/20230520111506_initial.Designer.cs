@@ -12,7 +12,7 @@ using Samit_For__Trading.Data;
 namespace ABDALLAH.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230520100203_initial")]
+    [Migration("20230520111506_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -166,7 +166,15 @@ namespace ABDALLAH.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("Orders");
                 });
@@ -179,13 +187,13 @@ namespace ABDALLAH.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("Benefit")
+                    b.Property<int?>("Benefit")
                         .HasColumnType("int");
 
                     b.Property<string>("CostumerFullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CostumerPhoneNumber")
+                    b.Property<int?>("CostumerPhoneNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("CotumerCity")
@@ -206,27 +214,24 @@ namespace ABDALLAH.Migrations
                     b.Property<string>("NameFR")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderID")
+                    b.Property<int?>("PNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("PNumber")
+                    b.Property<int?>("PRODUCTID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PRODUCTID")
+                    b.Property<int?>("Payment")
                         .HasColumnType("int");
 
-                    b.Property<int>("Payment")
+                    b.Property<int?>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShippingPayment")
+                    b.Property<int?>("ShippingPayment")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OrderID");
+                    b.HasIndex("PRODUCTID");
 
                     b.ToTable("PRODUCTS");
                 });
@@ -350,11 +355,22 @@ namespace ABDALLAH.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Samit_For__Trading.Models.Order", b =>
+                {
+                    b.HasOne("Samit_For__Trading.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Samit_For__Trading.Models.PRODUCT", b =>
                 {
-                    b.HasOne("Samit_For__Trading.Models.Order", null)
+                    b.HasOne("Samit_For__Trading.Models.Order", "Orders")
                         .WithMany("PRODUCTS")
-                        .HasForeignKey("OrderID");
+                        .HasForeignKey("PRODUCTID");
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Samit_For__Trading.Models.Order", b =>

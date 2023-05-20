@@ -33,7 +33,6 @@ namespace Samit_For__Trading.Data
                             Date=DateTime.Now.AddDays(-30),
                             Payment=1290000,
                             ShippingPayment=1200,
-                            PRODUCTID=1,
                         },
 
                         new PRODUCT()
@@ -51,7 +50,6 @@ namespace Samit_For__Trading.Data
                             Date=DateTime.Now.AddDays(-30),
                             Payment=1674000,
                             ShippingPayment=800,
-                            PRODUCTID=2,
                         },
                         new PRODUCT()
                         {
@@ -68,7 +66,6 @@ namespace Samit_For__Trading.Data
                             Date=DateTime.Now.AddDays(-30),
                             Payment=1290000,
                             ShippingPayment=1200,
-                            PRODUCTID=3,
                         },
                         new PRODUCT()
                         {
@@ -85,16 +82,13 @@ namespace Samit_For__Trading.Data
                             Date=DateTime.Now.AddDays(-30),
                             Payment=1290000,
                             ShippingPayment=1200,
-                            PRODUCTID=4,
                         }
-
                     });
                     context.SaveChanges();
                 }
-
             }
         }
-        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        public static async Task SeedUsers(IApplicationBuilder applicationBuilder)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
@@ -102,8 +96,10 @@ namespace Samit_For__Trading.Data
                 //Roles
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-                if (!await roleManager.RoleExistsAsync(UserRole.HISSEN))
-                    await roleManager.CreateAsync(new IdentityRole(UserRole.HISSEN));
+                if (!await roleManager.RoleExistsAsync(UserRole.ADMIN))
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.ADMIN));
+                if (!await roleManager.RoleExistsAsync(UserRole.USER))
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.USER));
 
                 //Users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
@@ -119,8 +115,22 @@ namespace Samit_For__Trading.Data
                         Email = adminUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAdminUser, "Hissen99");
-                    await userManager.AddToRoleAsync(newAdminUser, UserRole.HISSEN);
+                    await userManager.CreateAsync(newAdminUser, "Hissen@99");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRole.ADMIN);
+                }
+                string appUserEmail = "user@trading.com";
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new User()
+                    {
+                        FullName = "Application User",
+                        UserName = "app-user",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "User@123");
+                    await userManager.AddToRoleAsync(newAppUser, UserRole.USER);
                 }
             }
         }
