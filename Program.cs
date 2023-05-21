@@ -1,8 +1,9 @@
+using ABDALLAH.Data;
+using ABDALLAH.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Samit_For__Trading.Data;
-using Samit_For__Trading.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

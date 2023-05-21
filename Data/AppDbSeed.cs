@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Samit_For__Trading.Data.Static;
-using Samit_For__Trading.Models;
+﻿using ABDALLAH.Data;
+using ABDALLAH.Data.Static;
+using ABDALLAH.Models;
+using Microsoft.AspNetCore.Identity;
 using static Azure.Core.HttpHeader;
 
-namespace Samit_For__Trading.Data
+namespace ABDALLAH.Data
 {
     public class AppDbSeed
     {

@@ -1,4 +1,4 @@
-﻿namespace Samit_For__Trading.Data.Static
+﻿namespace ABDALLAH.Data.Static
 {
     public class UserRole
     {

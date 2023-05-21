@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Samit_For__Trading.Models
+namespace ABDALLAH.Models
 {
     public class User : IdentityUser
     {

@@ -1,9 +1,9 @@
-﻿using ABDALLAH.Data.ViewModels;
+﻿using ABDALLAH.Data;
+using ABDALLAH.Data.ViewModels;
+using ABDALLAH.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Samit_For__Trading.Data;
-using Samit_For__Trading.Data.Static;
-using Samit_For__Trading.Models;
+using ABDALLAH.Data.Static;
 
 namespace ABDALLAH.Controllers
 {

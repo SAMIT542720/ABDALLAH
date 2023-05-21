@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ABDALLAH.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Samit_For__Trading.Models
+namespace ABDALLAH.Models
 {
     public class PRODUCT
     {

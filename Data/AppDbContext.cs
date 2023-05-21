@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ABDALLAH.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Samit_For__Trading.Models;
 
-namespace Samit_For__Trading.Data
+
+namespace ABDALLAH.Data
 {
-    public class AppDbContext: IdentityDbContext<User>
+    public class AppDbContext : IdentityDbContext<User>
 
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
