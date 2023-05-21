@@ -2,7 +2,7 @@
 
 namespace ABDALLAH.Controllers
 {
-    public class OrderController1 : Controller
+    public class ORDERSController : Controller
     {
         public IActionResult Index()
         {
