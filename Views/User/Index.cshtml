@@ -29,7 +29,7 @@
                 @if (TempData["Error"] != null)
                 {
                     <div class="col-md-12 alert alert-danger">
-                        <span><b>Sorry!</b> - @TempData["Error"]</span>
+                        <span><b>عذرا!</b>-@TempData["Error"]</span>
                     </div>
                 }
                 <form asp-action="Index">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group text-center text-lg-start mt-4 pt-2">
                         <input type="submit" value="تسجيل الدخول" class="btn btn-outline-success" style="padding-left: 2.5rem; padding-right: 2.5rem;" />
-                        <a class=" btn btn-outline-secondary" asp-controller="User" asp-action="Index" class="small fw-bold mt-2 pt-1 mb-0">انشاء حساب جديد</a>
+                        <a class=" btn btn-outline-secondary" asp-controller="User" asp-action="Register" class="small fw-bold mt-2 pt-1 mb-0">انشاء حساب جديد</a>
                     </div>
                 </form>
             </div>
