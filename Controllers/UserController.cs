@@ -68,7 +68,9 @@ namespace ABDALLAH.Controllers
             {
                 FullName = registerVM.FullName,
                 Email = registerVM.EmialAddress,
-                UserName = registerVM.EmialAddress
+                UserName = registerVM.EmialAddress,
+                PhoneNumberTG= (int)registerVM.PhoneNumberTigo,
+                PhoneNumberRT= (int)registerVM.PhoneNumberAirtail,
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 

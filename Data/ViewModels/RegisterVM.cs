@@ -20,5 +20,11 @@ namespace ABDALLAH.Data.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "كلمة المرور غير مطابقة")]
         public string? ConfirmPassword { get; set; }
+        [Display(Name = "PhoneNumberTigo")]
+        [Required(ErrorMessage = "رقم الهاتف مطلوب")]
+        public int? PhoneNumberTigo { get; set; }
+        [Display(Name = "PhoneNumberAirtail")]
+        [Required(ErrorMessage = "رقم الهاتف مطلوب")]
+        public int? PhoneNumberAirtail { get; set; }
     }
 }
