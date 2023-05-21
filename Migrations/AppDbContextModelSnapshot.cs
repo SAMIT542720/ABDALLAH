@@ -278,12 +278,6 @@ namespace ABDALLAH.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PhoneNumberRT")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PhoneNumberTG")
-                        .HasColumnType("int");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 

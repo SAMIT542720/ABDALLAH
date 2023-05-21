@@ -113,7 +113,8 @@ namespace Samit_For__Trading.Data
                         FullName = "HISSEN MAHAMAT SAMIT",
                         UserName = "HISSE_SAMIT",
                         Email = adminUserEmail,
-                        EmailConfirmed = true
+                        EmailConfirmed = true,
+                        
                     };
                     await userManager.CreateAsync(newAdminUser, "Hissen@99");
                     await userManager.AddToRoleAsync(newAdminUser, UserRole.ADMIN);
@@ -127,7 +128,7 @@ namespace Samit_For__Trading.Data
                         FullName = "Application User",
                         UserName = "app-user",
                         Email = appUserEmail,
-                        EmailConfirmed = true
+                        EmailConfirmed = true,
                     };
                     await userManager.CreateAsync(newAppUser, "User@123");
                     await userManager.AddToRoleAsync(newAppUser, UserRole.USER);

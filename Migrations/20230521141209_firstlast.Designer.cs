@@ -12,8 +12,8 @@ using Samit_For__Trading.Data;
 namespace ABDALLAH.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230520111506_initial")]
-    partial class initial
+    [Migration("20230521141209_firstlast")]
+    partial class firstlast
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

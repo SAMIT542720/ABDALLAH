@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ABDALLAH.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class firstlast : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
