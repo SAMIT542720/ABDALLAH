@@ -2,19 +2,26 @@
 <div class="row">
     <div class="col-6 col-md-4">
         <h2>
-            HELLO @Html.DisplayNameFor(model=> model.FullName)
+            مرحبًا @Html.DisplayNameFor(model=> model.FullName)
         </h2>
         <div>
+            <label>
+                اسم المستخدم
+            </label>
+            <label>
+                @Html.DisplayNameFor(model=> model.UserName)
+            </label>
+        </div>
+        <div>
+            <label>
+                عنوان البريد الإلكتروني
+            </label>
             <label>
                 @Html.DisplayNameFor(model=> model.Email)
             </label>
         </div>
-        <div>
-            <label>
-
-            </label>
-        </div>
     </div>
     <div class="col-12 col-md-8">
+
     </div>
 </div>

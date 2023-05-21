@@ -1,14 +1,15 @@
 using ABDALLAH.Data;
+using ABDALLAH.Data.Services;
 using ABDALLAH.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Samit_For__Trading.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+builder.Services.AddScoped<IOrderService, OrderService>();
 //Authentication and Authorization
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMemoryCache();
