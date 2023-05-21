@@ -33,7 +33,7 @@ namespace ABDALLAH.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "HOME");
+                        return RedirectToAction("Index", "Order");
                     }
                 }
                 TempData["Error"] = "كلمة السر غير صحيحة. من فضلك حاول مرة اخري";
