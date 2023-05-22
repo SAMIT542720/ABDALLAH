@@ -10,6 +10,5 @@ namespace ABDALLAH.Data.ViewModels
             
         }
         public List<User> users { get; set; }
-      
     }
 }

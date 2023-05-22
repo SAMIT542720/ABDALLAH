@@ -40,6 +40,8 @@ namespace ABDALLAH.Data.ViewModels
         [Required(ErrorMessage = "يجب إدخال التاريخ")]
         public DateTime? Date { get; set; }
         public int? Payment { get; set; }
+        [Display(Name = "ShippingPayment")]
+        [Required(ErrorMessage = "مطلوب ادخال رسوم الشحن")]
         public int? ShippingPayment { get; set; }
         public int? PRODUCTID { get; set; }
         [ForeignKey("PRODUCTID")]
