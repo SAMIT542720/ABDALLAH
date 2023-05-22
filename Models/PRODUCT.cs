@@ -1,10 +1,11 @@
-﻿using ABDALLAH.Models;
+﻿using ABDALLAH.Data.Base;
+using ABDALLAH.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ABDALLAH.Models
 {
-    public class PRODUCT
+    public class PRODUCT:IEntityBase
     {
         [Key]
         public int ID { get; set; }

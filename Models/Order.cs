@@ -1,10 +1,11 @@
 ﻿
+using ABDALLAH.Data.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ABDALLAH.Models
 {
-    public class Order
+    public class Order:IEntityBase
     {
         [Key]
         public int ID { get; set; }
