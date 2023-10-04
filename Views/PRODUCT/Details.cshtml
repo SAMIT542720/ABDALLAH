@@ -1,1 +1,87 @@
-﻿
+﻿@model PRODUCT
+
+@{
+    ViewData["Title"] = "معلومات المنتج";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h3>
+                معلومات العميل
+            </h3>
+            <div class="form-group">
+                <label asp-for="CostumerFullName" class="control-labe text-right"> اسم العميل</label>
+                <input asp-for="CostumerFullName" class="form-control " readonly />
+                <span asp-validation-for="CostumerFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CotumerCity" class="control-labe text-right">مدينة العميل </label>
+                <input asp-for="CotumerCity" class="form-control " readonly />
+                <span asp-validation-for="CotumerCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostumerPhoneNumber" class="control-labe text-right"> رقم هاتف العميل</label>
+                <input asp-for="CostumerPhoneNumber" class="form-control " readonly />
+                <span asp-validation-for="CostumerPhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="PNumber" class="control-labe text-right"> كمية المنتج</label>
+                        <input asp-for="PNumber" class="form-control " readonly />
+                        <span asp-validation-for="PNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NameFR" class="control-labe text-right"> الاسم بالأبجدية اللاتينية</label>
+                        <input asp-for="NameFR" class="form-control " readonly />
+                        <span asp-validation-for="NameFR" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NameAR" class="control-labe text-right"> الاسم بالحروف الهجائية العربية</label>
+                        <input asp-for="NameAR" class="form-control " readonly />
+                        <span asp-validation-for="NameAR" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Benefit" class="control-labe text-right"> الفائدة</label>
+                        <input asp-for="Benefit" class="form-control " readonly />
+                        <span asp-validation-for="Benefit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-labe text-right"> السعر</label>
+                        <input asp-for="Price" class="form-control " readonly />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-labe text-right"> الوصف</label>
+                        <input asp-for="Description" class="form-control " readonly />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Destination" class="control-labe text-right"> الوجهة</label>
+                        <input asp-for="Destination" class="form-control " readonly />
+                        <span asp-validation-for="Destination" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CostumerPhoneNumber" class="control-labe text-right">التاريخ</label>
+                        <input asp-for="CostumerPhoneNumber" class="form-control " />
+                        <span asp-validation-for="CostumerPhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ShippingPayment" class="control-labe text-right"> رسوم الشحن</label>
+                        <input asp-for="ShippingPayment" class="form-control " readonly />
+                        <span asp-validation-for="ShippingPayment" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Statu" class="control-labe text-right"> الحالة</label>
+                        <input asp-for="Statu" class="form-control " readonly />
+                        <span asp-validation-for="Statu" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
