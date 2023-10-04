@@ -26,5 +26,21 @@ namespace ABDALLAH.Controllers
             }
             return View("Index", allMOVIES);
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var actordetails = await _service.GetByIdAsync(id);
+            if (actordetails == null) { return View("Not Found"); }
+            return View(actordetails);
+        }
+        //Edit actor :update
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actordetails = await _service.GetByIdAsync(id);
+            if (actordetails == null)
+            {
+                return View("Not Found");
+            }
+            return View(actordetails);
+        }
     }
 }
