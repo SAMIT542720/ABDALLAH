@@ -39,7 +39,7 @@
                             {
                                 <td>
                                     <a class="btn btn-outline-primary" @*asp-action="Edit" asp-route-id="@item.ID"*@> <i class="bi bi-pencil-square"> </i> تحديث</a>
-                                    <a class="btn btn-outline-info" @*asp-action="Details" asp-route-id="@item.ID"*@> <i class="bi bi-eye"></i> التفاصيل</a>             
+                                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.ID"> <i class="bi bi-eye"></i> التفاصيل</a>             
                                     <a class="btn btn-danger text-white" @*asp-action="Delete" asp-route-id="@item.ID"*@> <i class="bi bi-trash"></i> حذف</a>
                                 </td>
                             }
