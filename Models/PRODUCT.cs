@@ -25,6 +25,6 @@ namespace ABDALLAH.Models
         public int? PRODUCTID { get; set; }
         [ForeignKey("PRODUCTID")]
         public Order? Orders { get; set; }
-
+        public string? Statu { get; set; }
     }
 }

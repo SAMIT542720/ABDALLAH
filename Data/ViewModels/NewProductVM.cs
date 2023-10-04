@@ -48,6 +48,6 @@ namespace ABDALLAH.Data.ViewModels
         [Display(Name = "UserIDS")]
         [Required(ErrorMessage = "يجب اختيار العميل إذا لم يكن مدرجًا في القائمة ، فاختر أي عميل ثم أنشئ حسابًا جديدًا للعميل المستهدف وقم بتحديث الطلب")]
         public List<int>? UserIDS { get; set; }
-
+        public string? Statu { get; set; }
     }
 }
