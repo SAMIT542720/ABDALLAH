@@ -2,17 +2,17 @@
 @{
     int num = 1;
 }
-<div class="container-fluid ml-0 mr-0 ">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <table class="table table-striped table-bordered table-responsive">
                 <thead class="thead-dark">
                     <tr class="text-center">
-                        <th>الحالة </th>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                         {
                             <th>الإجراءات</th>
                         }
+                        <th>الحالة </th>
                         <th>رسوم الشحن</th>
                         <th>التاريخ</th>
                         <th>الوجهة</th>
@@ -35,9 +35,6 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                hhh
-                            </td>
                             @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                             {
                                 <td>
@@ -46,6 +43,9 @@
                                     <a class="btn btn-danger text-white" @*asp-action="Delete" asp-route-id="@item.ID"*@> <i class="bi bi-trash"></i> حذف</a>
                                 </td>
                             }
+                            <td>
+                                hhh
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem=> item.ShippingPayment)
                             </td>
