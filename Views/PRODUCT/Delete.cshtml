@@ -1,15 +1,15 @@
 ﻿@model PRODUCT
 
 @{
-    ViewData["Title"] = "تحديث معلومات الطلب";
+    ViewData["Title"] = "معلومات الطلب";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-<form asp-action="Edit">
+<form asp-action="Delete">
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
                 <h2 class="text-center">
-                    تحديث معلومات الطلب
+                    معلومات الطلب
                 </h2>
                 <br />
                 <br />
@@ -17,54 +17,54 @@
                     <div class="col">
                         <div class="form-group">
                             <label asp-for="PNumber" class="control-labe float-right"> كمية المنتج</label>
-                            <input asp-for="PNumber" class="form-control " />
+                            <input asp-for="PNumber" class="form-control " readonly />
                             <span asp-validation-for="PNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="NameFR" class="control-labe float-right"> الاسم بالأبجدية اللاتينية</label>
-                            <input asp-for="NameFR" class="form-control " />
+                            <input asp-for="NameFR" class="form-control " readonly />
                             <span asp-validation-for="NameFR" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="NameAR" class="control-labe float-right"> الاسم بالحروف الهجائية العربية</label>
-                            <input asp-for="NameAR" class="form-control " />
+                            <input asp-for="NameAR" class="form-control " readonly />
                             <span asp-validation-for="NameAR" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Benefit" class="control-labe float-right"> الفائدة</label>
-                            <input asp-for="Benefit" class="form-control " />
+                            <input asp-for="Benefit" class="form-control " readonly />
                             <span asp-validation-for="Benefit" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Price" class="control-labe float-right"> السعر</label>
-                            <input asp-for="Price" class="form-control " />
+                            <input asp-for="Price" class="form-control " readonly />
                             <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label asp-for="Description" class="control-labe float-right"> الوصف</label>
-                            <input asp-for="Description" class="form-control " />
+                            <input asp-for="Description" class="form-control " readonly />
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Destination" class="control-labe float-right"> الوجهة</label>
-                            <input asp-for="Destination" class="form-control " />
+                            <input asp-for="Destination" class="form-control " readonly />
                             <span asp-validation-for="Destination" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Date" class="control-labe float-right">التاريخ</label>
-                            <input asp-for="Date" class="form-control " />
+                            <input asp-for="Date" class="form-control " readonly />
                             <span asp-validation-for="Date" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="ShippingPayment" class="control-labe float-right"> رسوم الشحن</label>
-                            <input asp-for="ShippingPayment" class="form-control " />
+                            <input asp-for="ShippingPayment" class="form-control " readonly />
                             <span asp-validation-for="ShippingPayment" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Statu" class="control-labe float-right"> الحالة</label>
-                            <input asp-for="Statu" class="form-control " />
+                            <input asp-for="Statu" class="form-control " readonly />
                             <span asp-validation-for="Statu" class="text-danger"></span>
                         </div>
                     </div>
@@ -80,17 +80,17 @@
                 <br />
                 <div class="form-group">
                     <label asp-for="CostumerFullName" class="control-labe float-right"> اسم العميل</label>
-                    <input asp-for="CostumerFullName" class="form-control " />
+                    <input asp-for="CostumerFullName" class="form-control " readonly />
                     <span asp-validation-for="CostumerFullName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CotumerCity" class="control-labe float-right">مدينة العميل </label>
-                    <input asp-for="CotumerCity" class="form-control " />
+                    <input asp-for="CotumerCity" class="form-control " readonly />
                     <span asp-validation-for="CotumerCity" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CostumerPhoneNumber" class="control-labe float-right"> رقم هاتف العميل</label>
-                    <input asp-for="CostumerPhoneNumber" class="form-control " />
+                    <input asp-for="CostumerPhoneNumber" class="form-control " readonly />
                     <span asp-validation-for="CostumerPhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group ">
@@ -113,8 +113,8 @@
                         </div>
                     </div>
                     <div class="form-check-inline" style="margin-top:20px">
-                        <input type="submit" value="تحديث" class="btn btn-outline-primary float-start" />
-                        <a class="btn btn-danger text-white" style="margin-left:150px; margin-right:150px" asp-action="Delete" asp-route-id="@Model.ID"> <i class="bi bi-trash"></i> حذف</a>
+                        <a class="btn btn-outline-primary  float-start " asp-action="Edit" asp-route-id="@Model.ID"> <i class="bi bi-pencil-square"> </i> تحديث</a>
+                        <input type="submit" value="حذف" class="btn btn-danger text-white " style="margin-left:150px; margin-right:150px" />
                         <a class="btn btn-outline-info float-end" asp-action="Index"> <i class="fas fa-home"></i>الصفحة الرئيسية</a>
                     </div>
                 </div>

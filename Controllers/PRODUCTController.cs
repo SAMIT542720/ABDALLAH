@@ -51,5 +51,37 @@ namespace ABDALLAH.Controllers
             await _service.UpdateMovieAsync(data);
             return RedirectToAction(nameof(Index));
         }
+        //DELETING AN ORDER
+        public async Task<IActionResult> Delete(int id)
+        {
+            var pdatails = await _service.GetByIdAsync(id);
+            if (pdatails == null) return View("NotFound");
+            return View(pdatails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var pdatails = await _service.GetByIdAsync(id);
+            if (pdatails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+        //add new product.
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("CostumerFullName,CotumerCity, CostumerPhoneNumber,PNumber,NameFR,NameAR,Benefit,Price, Description,Destination,Date,ShippingPayment,Statu")] PRODUCT prosuct)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(prosuct);
+            }
+            await _service.AddAsync(prosuct);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

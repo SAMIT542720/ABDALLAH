@@ -92,9 +92,31 @@
                 <input asp-for="CostumerPhoneNumber" class="form-control " readonly />
                 <span asp-validation-for="CostumerPhoneNumber" class="text-danger"></span>
             </div>
-            <a class="btn btn-outline-primary  float-start " @*asp-action="Edit" asp-route-id="@item.ID"*@> <i class="bi bi-pencil-square"> </i> تحديث</a>
-            <a class="btn btn-danger text-white" style="margin-left:150px" @*asp-action="Delete" asp-route-id="@item.ID"*@> <i class="bi bi-trash"></i> حذف</a>
-            <a class="btn btn-outline-info float-end" asp-action="Index"> <i class="fas fa-home"></i>الصفحة الرئيسية</a>
+            <div class="form-group " >
+                <div class="form-group " style="margin-bottom:30px">
+                    <div class="col-md-6 float-end">
+                        <h6 class="control-labe float-end "> إجمالي تكلفة الشحن</h6>
+                        <a class="btn btn-outline-primary form-control" readonly> @(Model.PNumber * Model.ShippingPayment)</a>
+                    </div>
+                    <div class="col-md-6 float-end">
+                        <h6 class="control-labe float-end "> إجمالي الفائدة</h6>
+                        <a class="btn btn-outline-primary form-control" readonly> @(Model.PNumber * Model.Benefit)</a>
+                    </div>
+                    <div class="col-md-6 float-end">
+                        <h6 class="control-labe float-end "> السعر الإجمالي للمنتج</h6>
+                        <a class="btn btn-outline-primary form-control" readonly> @(Model.PNumber * Model.Price)</a>
+                    </div>
+                    <div class="col-md-6 float-end">
+                        <h6 class="control-labe float-end " style="">الإجمالي الكلي </h6>
+                        <a class="btn btn-outline-primary form-control" readonly> @(Model.PNumber * Model.ShippingPayment + Model.PNumber * Model.Benefit + Model.PNumber * Model.Price)</a>
+                    </div>
+                </div>
+                <div class="form-check-inline" style="margin-top:20px">
+                    <a class="btn btn-outline-primary  float-start " asp-action="Edit" asp-route-id="@Model.ID"> <i class="bi bi-pencil-square"> </i> تحديث</a>
+                    <a class="btn btn-danger text-white" style="margin-left:150px; margin-right:150px" asp-action="Delete" asp-route-id="@Model.ID"> <i class="bi bi-trash"></i> حذف</a>
+                    <a class="btn btn-outline-info float-end" asp-action="Index"> <i class="fas fa-home"></i>الصفحة الرئيسية</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
