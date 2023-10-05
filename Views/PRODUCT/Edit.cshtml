@@ -1,7 +1,7 @@
 ﻿@model PRODUCT
 
 @{
-    ViewData["Title"] = "تحديث منتج";
+    ViewData["Title"] = "تحديث معلومات الطلب";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <form asp-action="Edit">
@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-8">
                 <h2 class="text-center">
-                    تحديث منتج
+                    تحديث معلومات الطلب
                 </h2>
                 <br />
                 <br />
@@ -93,7 +93,7 @@
                     <input asp-for="CostumerPhoneNumber" class="form-control " />
                     <span asp-validation-for="CostumerPhoneNumber" class="text-danger"></span>
                 </div>
-                <input type="submit" value="تحديث" class="btn btn-outline-primary float-start"</i> />
+                <input type="submit" value="تحديث" class="btn btn-outline-primary float-start"/>
                 <a class="btn btn-danger text-white" style="margin-left:150px" @*asp-action="Delete" asp-route-id="@item.ID"*@> <i class="bi bi-trash"></i> حذف</a>
                 <a class="btn btn-outline-info float-end" asp-action="Index"> <i class="fas fa-home"></i>الصفحة الرئيسية</a>
             </div>

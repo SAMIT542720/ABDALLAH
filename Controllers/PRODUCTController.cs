@@ -1,4 +1,5 @@
 ﻿using ABDALLAH.Data.Services;
+using ABDALLAH.Data.ViewModels;
 using ABDALLAH.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,23 +37,18 @@ namespace ABDALLAH.Controllers
         //Edit actor :update
         public async Task<IActionResult> Edit(int id)
         {
-            var actordetails = await _service.GetByIdAsync(id);
-            if (actordetails == null)
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null) return View("NotFound");
+            return View(actorDetails);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, NewProductVM data)
+        {
+            if (id != data.ID)
             {
                 return View("Not Found");
             }
-            return View(actordetails);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("CostumerFullName,CotumerCity,CostumerPhoneNumber,PNumber,NameFR,NameAR,Benefit,Price,Description,Destination,Date,ShippingPayment,Statu")] PRODUCT product)
-        {
-
-            if (!ModelState.IsValid)
-            {
-                return View(product);
-            }
-            await _service.UpdateAsync(id, product);
-
+            await _service.UpdateMovieAsync(data);
             return RedirectToAction(nameof(Index));
         }
     }
