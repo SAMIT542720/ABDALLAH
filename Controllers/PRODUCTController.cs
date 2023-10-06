@@ -18,16 +18,16 @@ namespace ABDALLAH.Controllers
             var allproduct = await _service.GetAllAsync();
             return View(allproduct);
         }
-        //public async Task<IActionResult> Filter(string searchString)
-        //{
-        //    var allMOVIES = await _service.GetAllAsync(n =>n.Orders);
-        //    if (!string.IsNullOrEmpty(searchString))
-        //    {
-        //        var filteredresult = allMOVIES.Where(n => n.CostumerFullName.Contains(searchString) || n.CotumerCity.Contains(searchString) ||n.Destination.Contains(searchString) || n.NameFR.Contains(searchString) || n.NameAR.Contains(searchString)).ToList();
-        //        return View("Index", filteredresult);
-        //    }
-        //    return View("Index", allMOVIES);
-        //}
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allProducts = await _service.GetAllAsync(n => n.Orders);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredresult = allProducts.Where(n => n.CostumerFullName.Contains(searchString) || n.CotumerCity.Contains(searchString) || n.Destination.Contains(searchString) || n.NameFR.Contains(searchString) || n.NameAR.Contains(searchString)).ToList();
+                return View("Index", filteredresult);
+            }
+            return View("Index", allProducts);
+        }
         public async Task<IActionResult> Details(int id)
         {
             var actordetails = await _service.GetByIdAsync(id);

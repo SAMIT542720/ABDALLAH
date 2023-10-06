@@ -34,7 +34,7 @@
                 </div>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <form class="form-inline my-2 my-lg-0" asp-controller="ORDERS" asp-action="Filter" style="padding-right:25px;">
+                    <form class="form-inline my-2 my-lg-0" asp-controller="PRODUCT" asp-action="Filter" style="padding-right:25px;">
                         <input name="searchString" type="text" class="form-control" placeholder=".....البحث عن" ria-label="Recipient's username" aria-describedby="button-addon2" />
                         <button class="btn btn-outline-success my-2 sm-0" type="submit"> <i class="bi bi-search "></i></button>
                     </form>
