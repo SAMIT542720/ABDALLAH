@@ -1,10 +1,13 @@
 ﻿using ABDALLAH.Data.Services;
+using ABDALLAH.Data.Static;
 using ABDALLAH.Data.ViewModels;
 using ABDALLAH.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ABDALLAH.Controllers
 {
+    [Authorize(Roles = UserRole.ADMIN)]
     public class PRODUCTController : Controller
     {
         private readonly IProductService _service;
